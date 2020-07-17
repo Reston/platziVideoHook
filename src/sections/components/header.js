@@ -1,12 +1,12 @@
 import React from 'react'
-import { View, SafeAreaView, Image, StyleSheet } from 'react-native'
+import { View, SafeAreaView, Text, StyleSheet } from 'react-native'
 
 const Header = (props) => {
   return (
     <View>
       <SafeAreaView>
         <View style={styles.container}>
-          <Image source={require('../../../assets/abaqus.png')} style={styles.logo} />
+          <Text>Video App</Text>
           <View style={styles.right}>
             {props.children}
           </View>

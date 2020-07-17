@@ -23,12 +23,14 @@ const Movie = () => {
       opacity,
       {
         toValue: 1,
-        duration: 1000
+        duration: 1000,
+        useNativeDriver: true
       }
     ).start()
   }, [])
   return (
     <Animated.View
+      driver
       style={{
         flex: 1,
         opacity: opacity
