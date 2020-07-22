@@ -7,11 +7,20 @@
  */
 
 import React, { useEffect, useReducer } from 'react'
+import 'react-native-gesture-handler'
+import { NavigationContainer } from '@react-navigation/native'
+import { createStackNavigator } from '@react-navigation/stack'
 
 import Api from './src/utils/api'
 import VideoContext from './src/context/video-context'
 import videosReducer, { initialVideoState, initCategories, initSuggestions } from './src/reducers/videos'
-import AppLayout from './src/app'
+import LoginScreen from './src/screens/containers/login'
+import HomeScreen from './src/screens/containers/home'
+import ProfileScreen from './src/screens/containers/profile'
+import AboutScreen from './src/screens/containers/about'
+import MovieScreen from './src/screens/containers/movie'
+
+const Stack = createStackNavigator()
 
 const App = () => {
   const [videos, dispatchVideos] = useReducer(videosReducer, initialVideoState)
@@ -65,9 +74,17 @@ const App = () => {
     }
   }, [])
   return (
-    <VideoContext.Provider value={{ videos, dispatchVideos }}>
-      <AppLayout />
-    </VideoContext.Provider>
+    <NavigationContainer>
+      <VideoContext.Provider value={{ videos, dispatchVideos }}>
+        <Stack.Navigator initialRouteName='Login' screenOptions={{ title: 'titulo generico' }}>
+          <Stack.Screen name='Login' component={LoginScreen} />
+          <Stack.Screen name='Home' component={HomeScreen} options={{ title: 'Este es el home', gestureEnabled: true }} />
+          <Stack.Screen name='Movie' component={MovieScreen} />
+          <Stack.Screen name='Profile' component={ProfileScreen} />
+          <Stack.Screen name='About' component={AboutScreen} options={{ gestureEnabled: true }} />
+        </Stack.Navigator>
+      </VideoContext.Provider>
+    </NavigationContainer>
   )
 }
 
