@@ -3,7 +3,6 @@ import { View, Text, Image, StyleSheet, ScrollView } from 'react-native'
 import { WebView } from 'react-native-webview'
 
 function Details (props) {
-  console.log(props.medium_cover_image)
   return (
     <ScrollView>
       <View style={styles.top}>

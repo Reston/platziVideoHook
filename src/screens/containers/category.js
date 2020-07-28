@@ -7,7 +7,7 @@ import Separator from '@sections/components/vertical-separator'
 import Suggestion from '@videos/components/suggestion'
 import VideoContext from '@context/video-context'
 
-const SuggestionList = () => {
+const CategoryScreen = ({route}) => {
   const navigation = useNavigation()
   const { videos, dispatchVideos } = useContext(VideoContext)
   const renderEmpty = () => <Empty text='No hay recomendaciones' />
@@ -27,7 +27,8 @@ const SuggestionList = () => {
   }
   const keyExtractor = item => item.id.toString()
   return (
-    <Layout title='Recomendado para ti'>
+    // ? equivalente a (params.genre === null || params.genre === undefined) ? 'Categoría' : params.genre);
+    <Layout title={`${route.params?.genre ?? 'Categoría'}`}>
       <FlatList
         ListEmptyComponent={renderEmpty}
         ItemSeparatorComponent={itemSeparator}
@@ -39,4 +40,4 @@ const SuggestionList = () => {
   )
 }
 
-export default SuggestionList
+export default CategoryScreen

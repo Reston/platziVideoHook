@@ -1,14 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import {
   View,
   Text,
   StyleSheet,
   Button
 } from 'react-native'
+import AuthContext from '@context/auth-context'
 
-function Login (props) {
+function Login () {
+  const { signIn } = useContext(AuthContext)
   const handlePress = () => {
-    props.navigation.navigate('Home')
+    signIn('username/pass')
   }
   return (
     <View style={styles.container}>

@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react'
 import { TextInput } from 'react-native'
-import VideoContext from '../../context/video-context'
-import API from '../../utils/api'
+import VideoContext from '@context/video-context'
+import API from '@utils/api'
 
 function Search () {
   const { dispatchVideos } = useContext(VideoContext)

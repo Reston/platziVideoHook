@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { StyleSheet, ActivityIndicator, Text } from 'react-native'
 import Video from 'react-native-video'
-import Layout from '../components/layout-player'
-import ControlLayout from '../components/layout-control'
-import PlayPause from '../components/play-pause'
+import Layout from '@player/components/layout-player'
+import ControlLayout from '@player/components/layout-control'
+import PlayPause from '@player/components/play-pause'
 
 function Player () {
   const [buffering, setBuffering] = useState(true)
